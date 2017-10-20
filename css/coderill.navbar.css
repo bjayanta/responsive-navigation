@@ -1,0 +1,162 @@
+*, *::after, *::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.nav-wrapper {
+	width: 100%;
+	background: #ccc;
+}
+
+.nav-wrapper .nav-inner {
+	width: 100%;
+	max-width: 1170px;
+	margin: 0 auto;
+}
+
+.nav-wrapper .nav-inner ul {
+	list-style-type: none;
+}
+
+.nav-wrapper .nav-inner .brand {
+	overflow: auto;
+}
+
+.nav-wrapper .nav-inner .brand a {
+	display: inline-block;
+	text-decoration: none;
+	font-size: 22px;
+	font-weight: bold;
+	padding: 0 15px;
+	line-height: 56px;
+}
+
+.nav-wrapper .nav-inner .brand a:last-child {
+	float: right;
+}
+
+.nav-wrapper .nav-inner ul li a {
+	display: block;
+	padding: 0 15px;
+	line-height: 30px;
+	text-decoration: none;
+}
+
+.nav-wrapper .nav-inner ul li.active {
+	background: #f44;
+}
+
+.nav-wrapper .menu {
+	overflow: hidden;
+	max-height: 0;
+	opacity: 0;
+	transition: all 0.3s ease-in-out;
+}
+
+.nav-wrapper .menu.open {
+	max-height: 500px;
+	opacity: 1;
+}
+
+.nav-wrapper .nav-inner ul li a:hover {
+	background: rgba(40, 40, 40, 0.25);
+}
+
+.nav-wrapper .nav-inner .dropdown {}
+
+.nav-wrapper .nav-inner .dropdown ul {
+	max-height: 0;
+	opacity: 0;
+	overflow: hidden;
+	background: rgba(40, 40, 40, 0.05);
+	transition: all 0.25s ease-in-out;
+}
+
+.nav-wrapper .nav-inner .dropdown > a::after {
+	content: "\25CF";
+	float: right;
+}
+
+.nav-wrapper .nav-inner .dropdown.open > ul {
+	max-height: 500px;
+	opacity: 1;
+}
+
+/* responsive style start */
+@media screen and (min-width: 600px) {
+	.nav-wrapper .nav-inner {}
+}
+
+@media screen and (min-width: 992px) {
+	.nav-wrapper .nav-inner {
+		padding: 0 15px;
+		display: flex;
+	}
+
+	/*
+	.nav-wrapper .nav-inner .brand {
+		max-width: 200px;
+		width: 100%;
+	}
+	*/
+
+	.nav-wrapper .nav-inner .brand a,
+	.nav-wrapper .nav-inner ul li a {
+		line-height: 40px;
+	}
+
+	.nav-wrapper .nav-inner .menu {
+		flex-grow: 1;
+		overflow: inherit;
+		max-height: 56px;
+		opacity: 1;
+	}
+
+	.nav-wrapper .nav-inner .menu ul {
+		float: right;
+	}
+
+	.nav-wrapper .nav-inner .brand a:last-child {
+		display: none;
+	}
+
+	.nav-wrapper .nav-inner ul li {
+		float: left;
+		position: relative;
+	}
+
+	.nav-wrapper .nav-inner ul li a {
+		display: inline-block;
+	}
+
+	.nav-wrapper .nav-inner .dropdown ul {
+		max-height: inherit;
+		opacity: 1;
+		overflow: visible;
+
+		display: none;
+		position: absolute;
+		width: 150px;
+	}
+
+	.nav-wrapper .nav-inner li.dropdown li.dropdown ul {
+		position: absolute;
+		top: 0;
+		right: -150px;
+	}
+
+	.nav-wrapper .nav-inner ul li.dropdown > ul li {
+		float: none;
+	}
+
+	.nav-wrapper .nav-inner ul li.dropdown:hover > ul,
+	.nav-wrapper .nav-inner .dropdown ul li a {
+		display: block;
+	}
+
+	.nav-wrapper .nav-inner .dropdown > a::after {
+		display: none;
+	}
+}
+/* responsive style end */
